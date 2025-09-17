@@ -58,8 +58,8 @@ const Login = ()=>{
           </button>
           <p className="text-[13px] text-slate-800 mt-3">
             Bạn chưa có tài khoản?{' '}
-            <Link className="font-medium text-primary underline" to="signup">
-              SignUp
+            <Link className="font-medium text-primary underline" to="/signup">
+              Đăng ký
             </Link>
           </p>
         </form>

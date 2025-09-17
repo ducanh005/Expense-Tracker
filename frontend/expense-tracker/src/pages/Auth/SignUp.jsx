@@ -14,6 +14,26 @@ const Signup = ()=>{
 
   //handle Signup Form Submit
   const handleSignup = async (e)=>{
+    e.preventDefault()
+
+    let profileImageUrl = "";
+
+    if(!fullName){
+      setError("Vui lòng nhập họ và tên.")
+      return;
+    }
+
+    if(!validateEmail(email)){
+      setError("Vui lòng nhập email hợp lệ.")
+      return;
+    }
+    if(!password){
+      setError("Vui lòng nhập mật khẩu")
+      return; 
+    }
+
+    setError("")
+    //Signup API Call
 
   }
   return (
@@ -51,8 +71,18 @@ const Signup = ()=>{
               />
 
             </div>
-           
           </div>
+
+           {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
+            <button type="submit" className="btn-primary">
+              SIGN UP
+            </button>
+            <p className="text-[13px] text-slate-800 mt-3">
+              Bạn đã có tài khoản?{' '}
+              <Link className="font-medium text-primary underline" to="/login">
+                Đăng nhập
+              </Link>
+            </p>
         </form>
       
       </div>
