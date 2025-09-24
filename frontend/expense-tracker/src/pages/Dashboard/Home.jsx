@@ -1,7 +1,12 @@
+import DashBoardLayout from "../../components/layouts/DashBoardLayout";
+import { useUserAuth } from "../../hooks/useUserAuth";
 
 const Home = ()=>{
+  useUserAuth()
   return (
-    <div>Home</div>
+    <DashBoardLayout activeMenu= "Dashboard" >
+      <div className="my-5 mx-auto"></div>
+    </DashBoardLayout>
     )
 }
 
