@@ -14,3 +14,14 @@ export const getInitials = (name) =>{
     }
 return initials.toUpperCase()
 }
+
+export const addThousandsSeparator = (num) =>{
+    if(num == null || isNaN(num))return ""
+
+    const [integerPart, fractionalPart] = num.toString().split(".");
+    const formattedInterger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+
+    return fractionalPart
+     ? `${formattedInterger}.${fractionalPart}`
+     : formattedInterger;
+}

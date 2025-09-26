@@ -14,7 +14,7 @@ const DashBoardLayout = ({children,activeMenu}) => {
                 <div className="max-[100px]:hidden">
                     <SideMenu activeMenu={activeMenu}v/>
                 </div>
-                <div className="grow mx-5"></div>
+                <div className="grow mx-5">{children}</div>
             </div>
         )}
     </div>
