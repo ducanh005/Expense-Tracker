@@ -11,6 +11,8 @@ import {IoMdCard} from "react-icons/io"
 import { addThousandsSeparator } from "../../utils/helper";
 import RecentTransaction from "../../components/Dashboard/RecentTransaction";
 import FinanceOverview from "../../components/Dashboard/FinanceOverview";
+import ExpenseTransactions from "./ExpenseTransactions";
+import Last30DaysExpenses from "./Last30DaysExpenses";
 const Home = ()=>{
   useUserAuth()
   const navigate = useNavigate()
@@ -36,6 +38,7 @@ const Home = ()=>{
   }
   useEffect(()=>{
     fetchDashboardData()
+    
     return()=>{}
   },[])
   return (
@@ -64,7 +67,7 @@ const Home = ()=>{
         </div> */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          <RecentTransaction
+          {/* <RecentTransaction
             transaction= {dashboardData?.recentTransactions}
             onSeeMore={()=> navigate("/expense")}
           />
@@ -72,6 +75,14 @@ const Home = ()=>{
             totalBalance = {dashboardData?.totalBalance || 0}
             totalIncome = {dashboardData?.totalIncome || 0}
             totalExpense = {dashboardData?.totalExpense || 0}
+          /> */}
+          <ExpenseTransactions
+            transactions={dashboardData?.last30Daysexpense?.transactions || []}
+            onSeeMore={()=> navigate("/expense")}
+          ></ExpenseTransactions>
+
+          <Last30DaysExpenses
+            data={dashboardData?.last30Daysexpense?.transactions || []}
           />
         </div>
       </div>
