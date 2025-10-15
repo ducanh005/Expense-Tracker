@@ -39,6 +39,7 @@ const AddIncomeForm = ({onAddIncome}) => {
         onChange={(e)=> handleChange("date", e.target.value)}
         label="Date"
         placeholder=""
+        type="Date"
       />
 
       <div className="flex justify-end mt-6">
