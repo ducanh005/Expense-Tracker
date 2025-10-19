@@ -23,12 +23,13 @@ const Home = ()=>{
   const fetchDashboardData = async()=>{
     if(loading) return;
     setLoading(true)
-
+    
     try{
       const response = await axiosInstance.get(
         `${API_PATHS.DASHBOARD.GET_DATA}`
       )
       if(response.data){
+        console.log("Dashboard Data", response.data)
         setDashboardData(response.data)
       }
     }catch(error){
