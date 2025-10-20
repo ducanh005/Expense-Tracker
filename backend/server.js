@@ -35,16 +35,11 @@ connectDB();
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    [
-      "default-src 'self' data: blob:;",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval';",
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;",
-      "font-src 'self' data: https://fonts.gstatic.com;",
-      "img-src 'self' data: blob:;",
-    ].join(" ")
+    "default-src 'self' data: blob: https://expense-tracker-3mto.onrender.com; connect-src 'self' https://expense-tracker-3mto.onrender.com https://fonts.googleapis.com https://fonts.gstatic.com data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;"
   );
   next();
 });
+
 
 // ======================
 // 📦 API routes
