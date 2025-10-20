@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:8000'
+export const BASE_URL = "http://192.168.16.107:8000"
 
 //utils/api/Path.js
 

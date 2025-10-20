@@ -16,7 +16,7 @@ app.use(cors(
     {
         origin: process.env.CLIENT_URL || "*",
         methods:["GET","POST","PUT","DELETE"],
-        alowedHeaders:["Content-Type","Authorization"]
+        allowedHeaders:["Content-Type","Authorization"]
     }
 ));
 
@@ -33,6 +33,6 @@ app.use("/api/v1/dashboard", dashboardRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT,()=>{
-    console.log(`Server is running on port ${PORT}`);
+app.listen(PORT,"0.0.0.0",()=>{
+    console.log(`Server is running at http://192.168.16.107:${PORT}`);
 })

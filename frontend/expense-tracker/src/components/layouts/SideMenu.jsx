@@ -5,18 +5,18 @@ import { useNavigate } from 'react-router-dom';
 import CharAvatar from '../Cards/CharAvatar';
 
 const SideMenu = ({activeMenu}) => {
-    const {user,clearuser} = useContext(UserContext)
+    const {user,clearUser} = useContext(UserContext)
     const navigate = useNavigate()
     const handleClick = (route)=>{
-        if(route === "logout"){
+        if(route === "logout" || route === "/logout"){
             handleLogout()
             return
         }
         navigate(route)
     }
     const handleLogout = ()=>{
-        localStorage.clear()
-        clearuser()
+        localStorage.removeItem("token")
+        clearUser()
         navigate("/login")
     }
     return (
