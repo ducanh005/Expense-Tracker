@@ -12,7 +12,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Build output
-dist/
+#dist/
 build/
 
 # OS files
