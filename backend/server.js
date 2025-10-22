@@ -35,8 +35,11 @@ connectDB();
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self' data: blob: https://expense-tracker-3mto.onrender.com; connect-src 'self' https://expense-tracker-3mto.onrender.com https://fonts.googleapis.com https://fonts.gstatic.com data: blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:;"
-  );
+  "default-src 'self' data: blob: https://expense-tracker-3mto.onrender.com https://expense-tracker-backend.onrender.com; " +
+  "connect-src 'self' https://expense-tracker-3mto.onrender.com https://expense-tracker-backend.onrender.com https://fonts.googleapis.com https://fonts.gstatic.com data: blob:; " +
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
+  "font-src 'self' https://fonts.gstatic.com data:;"
+);
   next();
 });
 
@@ -44,7 +47,7 @@ app.use((req, res, next) => {
 // ======================
 // 📦 API routes
 // ======================
-app.use("/api/v1/auth", authRoutes);
+app.use("/api/v1/auth/login", authRoutes);
 app.use("/api/v1/income", incomeRoutes);
 app.use("/api/v1/expense", expenseRoutes);
 app.use("/api/v1/dashboard", dashboardRoutes);
